@@ -8,15 +8,18 @@ fun main() {
 }
 
 fun solvePartOne(inputs: List<String>): Int {
+    //Return sum of values from every input line
     return inputs.sumOf {line->
         val numbers = line.filter {
             it.isDigit()
         }
         val firstDigit = numbers.first()
-        val lastDigit = numbers.lastIndex?:firstDigit
+        //If lastDigit is null, return firstDigit
+        val lastDigit = numbers.lastOrNull()?:firstDigit
+        //Create string to int with first and last digit
         "$firstDigit$lastDigit".toInt()
     }
-
 }
+
 
 
